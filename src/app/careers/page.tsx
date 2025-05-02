@@ -2,7 +2,7 @@
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 const positions = [
   {
@@ -89,14 +89,9 @@ export default function CareersPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gray-50">
         <div className="container">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-center"
-          >
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
             採用情報
-          </motion.h1>
+          </h1>
           <p className="text-xl text-center text-gray-600 mb-8">
             私たちと一緒に、テクノロジーの力で社会に貢献しませんか？
           </p>
@@ -122,11 +117,8 @@ export default function CareersPage() {
           <h2 className="text-3xl font-bold text-center mb-12">募集職種</h2>
           <div className="space-y-8">
             {positions.map((position, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
                 className="bg-white p-8 rounded-lg shadow-lg"
               >
                 <div className="mb-6">
@@ -160,7 +152,7 @@ export default function CareersPage() {
                     応募する
                   </a>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

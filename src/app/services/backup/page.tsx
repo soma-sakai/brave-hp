@@ -2,7 +2,7 @@
 
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 export default function BackupPage() {
   return (
@@ -12,14 +12,9 @@ export default function BackupPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gray-50">
         <div className="container">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-center"
-          >
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
             クラウドバックアップサービス
-          </motion.h1>
+          </h1>
           <p className="text-xl text-center text-gray-600 mb-8">
             低コストでクラウドデータのすべてを無期限にバックアップします。
           </p>

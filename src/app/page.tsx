@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import Header from '../components/Header';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -118,11 +118,8 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-blue-950/80">
           {/* Animated X patterns */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.15 }}
-            transition={{ duration: 2 }}
-            className="absolute inset-0"
+          <div 
+            className="absolute inset-0 opacity-15"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,20 L80,80 M80,20 L20,80' stroke='%230066FF' stroke-width='8'/%3E%3C/svg%3E")`,
               backgroundSize: '200px 200px',
@@ -131,42 +128,28 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-            className="text-[12rem] font-bold leading-none text-blue-300"
-          >
+          <h1 className="text-[12rem] font-bold leading-none text-blue-300">
             IX
-          </motion.h1>
+          </h1>
           
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="max-w-3xl mx-auto mb-16"
-          >
+          <div className="max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-light mb-6">
               Managed IX Service
             </h2>
             <p className="text-lg text-blue-200">
               インテントを起点に業務を変革し、企業の成長を加速させる新しいプロフェッショナルサービス
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Feature Cards - First Row */}
+      {/* Feature Cards */}
       <section className="py-16 bg-blue-950">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <motion.div
+              <div
                 key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                viewport={{ once: true }}
                 className="bg-white rounded-lg overflow-hidden"
               >
                 <div className="p-6">
@@ -177,7 +160,7 @@ export default function Home() {
                     {feature.description}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -187,13 +170,7 @@ export default function Home() {
       <section className="py-24 bg-blue-900 relative">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
+            <div className="text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
                 人と企業の未来を創る
               </h2>
@@ -208,7 +185,7 @@ export default function Home() {
                   サービスを見る
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-blue-950 to-transparent"></div>
@@ -219,12 +196,8 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             {casesTop.map((item, index) => (
-              <motion.div
+              <div
                 key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                viewport={{ once: true }}
                 className="bg-white rounded-lg overflow-hidden"
               >
                 <div className="p-6">
@@ -235,7 +208,7 @@ export default function Home() {
                     {item.description}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -245,12 +218,7 @@ export default function Home() {
       <section className="py-24 bg-blue-900 relative">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
           <div className="md:w-2/3">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
+            <div className="text-center">
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">
                 株式会社ブレーブは、「人と企業の未来を創る」をモットーに
               </h2>
@@ -262,24 +230,17 @@ export default function Home() {
                   「意図＝インテント」を起点にAIが最適なアプローチを導き出し、営業やマーケティング活動を戦略的に自動化していく新しい成長モデルです。顧客の行動データから真のニーズを把握し、最適なタイミングでアプローチすることで、営業効率を飛躍的に向上させます。
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
           <div className="md:w-1/3">
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <div className="relative h-80 rounded-lg overflow-hidden">
-                <Image
-                  src="/images/intent-image.svg"
-                  alt="INTENT"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </motion.div>
+            <div className="relative h-80 rounded-lg overflow-hidden">
+              <Image
+                src="/images/intent-image.svg"
+                alt="INTENT"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-blue-950 to-transparent"></div>
@@ -290,12 +251,8 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             {casesBottom.map((item, index) => (
-              <motion.div
+              <div
                 key={item.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                viewport={{ once: true }}
                 className="bg-white rounded-lg overflow-hidden"
               >
                 <div className="p-6">
@@ -306,7 +263,7 @@ export default function Home() {
                     {item.description}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -430,12 +387,8 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-6 mb-12">
             {blog.map((post, index) => (
-              <motion.div
+              <div
                 key={post.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
                 className="bg-white rounded-lg overflow-hidden"
               >
                 <div className="relative aspect-video">
@@ -450,7 +403,7 @@ export default function Home() {
                   <h3 className="text-lg font-medium text-blue-950 mb-2">{post.title}</h3>
                   <p className="text-gray-600 text-sm">{post.description}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
           <div className="text-center">

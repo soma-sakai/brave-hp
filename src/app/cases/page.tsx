@@ -2,7 +2,7 @@
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 const cases = [
   {
@@ -36,14 +36,9 @@ export default function CasesPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gray-50">
         <div className="container">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-center"
-          >
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
             導入事例
-          </motion.h1>
+          </h1>
           <p className="text-xl text-center text-gray-600 mb-8">
             お客様の課題解決に向けた取り組みをご紹介します。
           </p>
@@ -55,11 +50,8 @@ export default function CasesPage() {
         <div className="container">
           <div className="space-y-16">
             {cases.map((case_, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
                 className="bg-white p-8 rounded-lg shadow-lg"
               >
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -82,7 +74,7 @@ export default function CasesPage() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
