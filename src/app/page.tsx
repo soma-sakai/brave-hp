@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
-import Header from '@/app/components/Header';
+import Header from '../components/Header';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
