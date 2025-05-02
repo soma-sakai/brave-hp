@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0055A4;
+  --accent: #FF6600;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[--primary] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity;
+  }
+  
+  .btn-accent {
+    @apply bg-[--accent] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity;
+  }
+
+  .animate-dissolve {
+    animation: dissolve 1.5s ease-in-out forwards;
+  }
+
+  .animate-lens-flare {
+    animation: lens-flare 1.8s ease-out forwards;
+  }
+}
+
+@keyframes dissolve {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes lens-flare {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+body {
+  @apply text-gray-900 bg-white;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-800;
+}
+
+/* Additional dark theme styles */
+.bg-blue-950 {
+  background-color: #082f49;
+}
+
+.text-blue-300 {
+  color: #7dd3fc;
+}
+
+.text-blue-200 {
+  color: #bae6fd;
+}
+
+.border-blue-800 {
+  border-color: #075985;
+}
+
+.bg-blue-900 {
+  background-color: #0c4a6e;
+}
