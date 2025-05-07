@@ -148,9 +148,7 @@ export default function Home() {
           
             {/* Dissolve animation for subtitle - simplified to single stage */}
             <h2 className="text-xl md:text-2xl lg:text-3xl font-light text-blue-200 tracking-wider dissolve-subtitle-simple" style={{ letterSpacing: '0.07em' }}>
-              <span className="inline-block px-6 py-3 border border-blue-400 bg-blue-900/50 backdrop-blur-sm rounded-lg">
-                三方よし、ブレーブに関わる皆が幸せに
-              </span>
+              三方よし、ブレーブに関わる皆が幸せに
             </h2>
           </div>
         </div>
