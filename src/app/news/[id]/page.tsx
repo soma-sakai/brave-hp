@@ -36,37 +36,65 @@ export default function NewsDetailPage() {
   // If no matching news item is found, show an error message
   if (!newsItem) {
     return (
-      <main className="min-h-screen bg-blue-950 text-white">
+      <main className="min-h-screen bg-gradient-to-b from-blue-600 to-blue-900">
         <Header />
-        <section className="relative pt-32 pb-20 bg-gradient-to-b from-blue-800 to-blue-900 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-800 to-blue-900">
+        <section className="relative pt-32 pb-20 overflow-hidden">
+          <div className="absolute inset-0">
             {/* Gradient wave background */}
             <div 
               className="absolute inset-0 opacity-100"
               style={{
                 backgroundImage: `
-                  radial-gradient(circle at 70% 60%, rgba(37, 99, 235, 0.7) 0%, transparent 60%),
-                  radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.7) 0%, transparent 50%),
-                  linear-gradient(to bottom right, rgba(29, 78, 216, 0.4), rgba(30, 64, 175, 0.6))
-                `,
+                  radial-gradient(circle at 70% 60%, rgba(37, 99, 235, 0.4) 0%, transparent 70%),
+                  radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.4) 0%, transparent 60%)
+                `
               }}
             />
+            
+            {/* Smooth waves */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute bottom-0 left-0 right-0 h-[45%]"
+                   style={{
+                     backgroundImage: `
+                       linear-gradient(to bottom right, 
+                       rgba(59, 130, 246, 0.2) 0%, 
+                       rgba(37, 99, 235, 0.3) 40%, 
+                       rgba(30, 64, 175, 0.4) 80%)
+                     `,
+                     borderRadius: '100% 100% 0 0 / 80% 80% 0 0',
+                     transform: 'scaleX(1.5)',
+                   }}>
+              </div>
+            </div>
           </div>
-          <div className="container mx-auto px-4 relative z-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-300">
-              お知らせ
-            </h1>
-            <div className="w-24 h-1 bg-blue-400 mx-auto mb-8"></div>
+
+          <div className="container mx-auto px-4 relative z-10 text-center">
+            <h1 className="text-5xl font-bold mb-4 text-white">お知らせ</h1>
+            <div className="w-24 h-1 bg-blue-400 mx-auto"></div>
           </div>
         </section>
-        <section className="py-16 bg-gradient-to-b from-blue-900 to-blue-950">
-          <div className="container mx-auto px-4 text-center">
-            <div className="bg-gradient-to-b from-blue-800/40 to-blue-900/60 backdrop-blur-sm p-8 rounded-xl border border-blue-700/40 shadow-lg max-w-2xl mx-auto">
-              <h2 className="text-2xl font-bold text-blue-100">お探しのお知らせが見つかりませんでした</h2>
-              <div className="mt-8">
-                <Link href="/news" className="text-cyan-300 hover:text-cyan-100 font-medium inline-flex items-center">
-                  <svg className="mr-1 w-4 h-4 rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
+
+        <section className="py-20 relative">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-blue-800/40 backdrop-blur-sm rounded-2xl p-8 border border-blue-600/30 shadow-lg text-center">
+                <h2 className="text-2xl font-bold text-white mb-6">お探しのお知らせが見つかりませんでした</h2>
+                <Link 
+                  href="/news" 
+                  className="inline-flex items-center text-cyan-300 hover:text-cyan-200 font-medium group"
+                >
+                  <svg 
+                    className="mr-2 w-4 h-4 transform rotate-180" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth="2" 
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                   お知らせ一覧に戻る
                 </Link>
@@ -80,21 +108,20 @@ export default function NewsDetailPage() {
   }
 
   return (
-    <main className="min-h-screen bg-blue-950 text-white">
+    <main className="min-h-screen bg-gradient-to-b from-blue-600 to-blue-900">
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-b from-blue-800 to-blue-900 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-800 to-blue-900">
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0">
           {/* Gradient wave background */}
           <div 
             className="absolute inset-0 opacity-100"
             style={{
               backgroundImage: `
-                radial-gradient(circle at 70% 60%, rgba(37, 99, 235, 0.7) 0%, transparent 60%),
-                radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.7) 0%, transparent 50%),
-                linear-gradient(to bottom right, rgba(29, 78, 216, 0.4), rgba(30, 64, 175, 0.6))
-              `,
+                radial-gradient(circle at 70% 60%, rgba(37, 99, 235, 0.4) 0%, transparent 70%),
+                radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.4) 0%, transparent 60%)
+              `
             }}
           />
           
@@ -105,68 +132,63 @@ export default function NewsDetailPage() {
                    backgroundImage: `
                      linear-gradient(to bottom right, 
                      rgba(59, 130, 246, 0.2) 0%, 
-                     rgba(37, 99, 235, 0.4) 40%, 
-                     rgba(30, 64, 175, 0.5) 80%)
+                     rgba(37, 99, 235, 0.3) 40%, 
+                     rgba(30, 64, 175, 0.4) 80%)
                    `,
                    borderRadius: '100% 100% 0 0 / 80% 80% 0 0',
                    transform: 'scaleX(1.5)',
-                   boxShadow: '0 -10px 30px rgba(37, 99, 235, 0.3)',
                  }}>
-            </div>
-            
-            {/* 光の反射効果 */}
-            <div className="absolute bottom-[30%] left-[20%] w-[15%] h-[10%] bg-blue-400/30 rounded-full blur-2xl"></div>
-            <div className="absolute bottom-[25%] right-[30%] w-[20%] h-[8%] bg-blue-300/40 rounded-full blur-3xl"></div>
-            
-            {/* 白い直線 */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute top-[75%] w-full h-[2px] bg-gradient-to-r from-white/10 via-white/80 to-white/10"></div>
-              <div className="absolute left-[85%] top-0 h-full w-[1px] bg-white/25"></div>
             </div>
           </div>
         </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-300">
-            お知らせ
-          </h1>
-          <div className="w-24 h-1 bg-blue-400 mx-auto mb-8"></div>
+
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <h1 className="text-5xl font-bold mb-4 text-white">お知らせ</h1>
+          <div className="w-24 h-1 bg-blue-400 mx-auto"></div>
         </div>
       </section>
 
-      {/* News Detail */}
-      <section className="py-16 bg-gradient-to-b from-blue-900 to-blue-950 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="grid-news-detail" width="50" height="50" patternUnits="userSpaceOnUse">
-                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#4299e1" strokeWidth="0.5"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid-news-detail)" />
-          </svg>
-        </div>
-        
+      {/* News Detail Section */}
+      <section className="py-20 relative">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="mb-6">
-              <Link href="/news" className="text-cyan-300 hover:text-cyan-100 font-medium inline-flex items-center">
-                <svg className="mr-1 w-4 h-4 rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-8">
+              <Link 
+                href="/news" 
+                className="inline-flex items-center text-cyan-300 hover:text-cyan-200 font-medium group"
+              >
+                <svg 
+                  className="mr-2 w-4 h-4 transform rotate-180" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth="2" 
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
                 お知らせ一覧に戻る
               </Link>
             </div>
             
-            <article className="bg-gradient-to-b from-blue-800/40 to-blue-900/60 backdrop-blur-sm p-8 rounded-xl border border-blue-700/40 shadow-lg">
+            <article className="bg-blue-800/40 backdrop-blur-sm rounded-2xl p-8 border border-blue-600/30 shadow-lg">
               <div className="mb-8">
-                <span className="text-cyan-300 font-semibold">{newsItem.date}</span>
-                <h2 className="text-3xl font-bold text-blue-100 mt-2">{newsItem.title}</h2>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-500/20 text-blue-200">
+                  {newsItem.date}
+                </span>
+                <h2 className="text-3xl font-bold text-white mt-4">{newsItem.title}</h2>
               </div>
               
-              <div className="prose prose-blue max-w-none">
+              <div className="prose prose-lg prose-invert max-w-none">
                 {newsItem.content.split('\n').map((paragraph, index) => (
-                  <p key={index} className="text-blue-200 leading-relaxed my-4">{paragraph}</p>
+                  paragraph.trim() && (
+                    <p key={index} className="text-blue-200 leading-relaxed mb-4">
+                      {paragraph.trim()}
+                    </p>
+                  )
                 ))}
               </div>
             </article>

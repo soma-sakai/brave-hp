@@ -4,6 +4,12 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import ParallaxHero from '../../components/ParallaxHero';
+import ParallaxBackground from '../../components/ParallaxBackground';
+import ParallaxElement from '../../components/ParallaxElement';
+import ScrollFade from '../../components/ScrollFade';
+import StaggerContainer from '../../components/StaggerContainer';
 
 // お問い合わせ種類のオプション
 const contactTypes = [
@@ -22,7 +28,7 @@ export default function ContactPage() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -43,98 +49,43 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-blue-950 text-white">
+    <main className="min-h-screen bg-gradient-to-b from-blue-600 to-blue-900">
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-b from-blue-800 to-blue-900 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-800 to-blue-900">
-          {/* Gradient wave background */}
-          <div 
-            className="absolute inset-0 opacity-100"
-            style={{
-              backgroundImage: `
-                radial-gradient(circle at 70% 60%, rgba(37, 99, 235, 0.7) 0%, transparent 60%),
-                radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.7) 0%, transparent 50%),
-                linear-gradient(to bottom right, rgba(29, 78, 216, 0.4), rgba(30, 64, 175, 0.6))
-              `,
-            }}
-          />
-          
-          {/* Smooth waves */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute bottom-0 left-0 right-0 h-[45%]"
-                 style={{
-                   backgroundImage: `
-                     linear-gradient(to bottom right, 
-                     rgba(59, 130, 246, 0.2) 0%, 
-                     rgba(37, 99, 235, 0.4) 40%, 
-                     rgba(30, 64, 175, 0.5) 80%)
-                   `,
-                   borderRadius: '100% 100% 0 0 / 80% 80% 0 0',
-                   transform: 'scaleX(1.5)',
-                   boxShadow: '0 -10px 30px rgba(37, 99, 235, 0.3)',
-                 }}>
-            </div>
-            
-            {/* 光の反射効果 */}
-            <div className="absolute bottom-[30%] left-[20%] w-[15%] h-[10%] bg-blue-400/30 rounded-full blur-2xl"></div>
-            <div className="absolute bottom-[25%] right-[30%] w-[20%] h-[8%] bg-blue-300/40 rounded-full blur-3xl"></div>
-            
-            {/* 白い直線 */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute top-[75%] w-full h-[2px] bg-gradient-to-r from-white/10 via-white/80 to-white/10"></div>
-              <div className="absolute left-[85%] top-0 h-full w-[1px] bg-white/25"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-300">
-            お問い合わせ
-          </h1>
-          <div className="w-24 h-1 bg-blue-400 mx-auto mb-8"></div>
-        </div>
-      </section>
+      {/* Hero Section with Parallax */}
+      <ParallaxHero title="お問い合わせ" />
 
-      {/* Contact Form Section */}
-      <section className="py-16 bg-gradient-to-b from-blue-900 to-blue-950 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="grid-contact" width="50" height="50" patternUnits="userSpaceOnUse">
-                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#4299e1" strokeWidth="0.5"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid-contact)" />
-          </svg>
-        </div>
-        
+      {/* Contact Form Section with Parallax */}
+      <ScrollFade className="py-20 relative">
+        <ParallaxBackground />
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             {isSubmitted ? (
-              <div className="bg-gradient-to-b from-blue-800/40 to-blue-900/60 backdrop-blur-sm p-12 rounded-xl border border-blue-700/40 shadow-lg text-center">
-                <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-8">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <h2 className="text-3xl font-bold mb-6 text-white">送信されました</h2>
-                <p className="text-xl text-blue-100 mb-8">
-                  お問い合わせありがとうございます。<br />
-                  担当者より連絡させていただきます。
-                </p>
-                <p className="text-blue-300 mb-8">
-                  3秒後にホームページに戻ります...
-                </p>
-              </div>
+              <ScrollFade delay={0.2} className="bg-blue-800/40 backdrop-blur-sm rounded-2xl p-8 border border-blue-600/30 shadow-lg text-center">
+                <h2 className="text-2xl font-bold text-white mb-4">送信完了</h2>
+                <p className="text-blue-100 mb-4">お問い合わせありがとうございます。<br />内容を確認次第、担当者よりご連絡させていただきます。</p>
+                <p className="text-blue-200">まもなくトップページに移動します...</p>
+              </ScrollFade>
             ) : (
-              <div className="bg-gradient-to-b from-blue-800/40 to-blue-900/60 backdrop-blur-sm p-8 rounded-xl border border-blue-700/40 shadow-lg">
-                <h2 className="text-2xl font-bold mb-6 text-center text-blue-200">お問い合わせフォーム</h2>
-                
-                <form onSubmit={handleSubmit} className="space-y-6">
+              <ScrollFade delay={0.2} className="bg-blue-800/40 backdrop-blur-sm rounded-2xl p-8 border border-blue-600/30 shadow-lg">
+                <StaggerContainer staggerDelay={0.08} direction="up" className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-blue-100 mb-1">お名前 <span className="text-red-400">*</span></label>
+                    <label htmlFor="type" className="block text-sm font-medium text-blue-100 mb-2">お問い合わせ種類</label>
+                    <select
+                      id="type"
+                      name="type"
+                      value={formData.type}
+                      onChange={handleInputChange}
+                      className="w-full bg-blue-900/50 border border-blue-700/50 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                      {contactTypes.map(type => (
+                        <option key={type.id} value={type.id}>{type.label}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-blue-100 mb-2">お名前</label>
                     <input
                       type="text"
                       id="name"
@@ -142,13 +93,13 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-2 rounded-lg bg-blue-900/50 border border-blue-700 text-white placeholder-blue-300/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full bg-blue-900/50 border border-blue-700/50 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="山田 太郎"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-blue-100 mb-1">メールアドレス <span className="text-red-400">*</span></label>
+                    <label htmlFor="email" className="block text-sm font-medium text-blue-100 mb-2">メールアドレス</label>
                     <input
                       type="email"
                       id="email"
@@ -156,110 +107,93 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-2 rounded-lg bg-blue-900/50 border border-blue-700 text-white placeholder-blue-300/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="example@example.com"
+                      className="w-full bg-blue-900/50 border border-blue-700/50 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="your-email@example.com"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-blue-100 mb-1">電話番号</label>
+                    <label htmlFor="phone" className="block text-sm font-medium text-blue-100 mb-2">電話番号（任意）</label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-2 rounded-lg bg-blue-900/50 border border-blue-700 text-white placeholder-blue-300/60 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full bg-blue-900/50 border border-blue-700/50 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="03-XXXX-XXXX"
                     />
                   </div>
-                  
+
                   <div>
-                    <label htmlFor="type" className="block text-sm font-medium text-blue-100 mb-2">お問い合わせ種類 <span className="text-red-400">*</span></label>
-                    <div className="space-y-2">
-                      {contactTypes.map((type) => (
-                        <div key={type.id} className="flex items-center">
-                          <input
-                            type="radio"
-                            id={type.id}
-                            name="type"
-                            value={type.id}
-                            checked={formData.type === type.id}
-                            onChange={handleInputChange}
-                            className="mr-2 accent-blue-500"
-                          />
-                          <label htmlFor={type.id} className="text-white">{type.label}</label>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-blue-100 mb-1">お問い合わせ内容 <span className="text-red-400">*</span></label>
+                    <label htmlFor="message" className="block text-sm font-medium text-blue-100 mb-2">お問い合わせ内容</label>
                     <textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
                       required
-                      rows={5}
-                      className="w-full px-4 py-2 rounded-lg bg-blue-900/50 border border-blue-700 text-white placeholder-blue-300/60 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                      placeholder="お問い合わせ内容を入力してください"
+                      rows={6}
+                      className="w-full bg-blue-900/50 border border-blue-700/50 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                      placeholder="お問い合わせ内容をご記入ください"
                     ></textarea>
                   </div>
-                  
-                  <div className="pt-4">
-                    <button
+
+                  <div className="text-center">
+                    <motion.button
                       type="submit"
-                      className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-lg"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all duration-300"
                     >
                       送信する
-                    </button>
+                    </motion.button>
                   </div>
-                </form>
-              </div>
+                </StaggerContainer>
+              </ScrollFade>
             )}
           </div>
         </div>
-      </section>
+      </ScrollFade>
 
-      {/* Additional Info Section */}
-      <section className="py-16 bg-blue-900/50">
+      {/* Company Info Section with Parallax */}
+      <ScrollFade direction="up" delay={0.3} className="py-20 relative bg-gradient-to-b from-blue-900 to-blue-950">
+        <div className="relative">
+          <ParallaxElement speed={0.1} className="absolute top-[-50px] left-[10%] w-[200px] h-[200px] rounded-full bg-indigo-500/10 blur-[70px]" />
+          <ParallaxElement speed={-0.15} className="absolute bottom-[-80px] right-[5%] w-[300px] h-[300px] rounded-full bg-blue-400/15 blur-[90px]" />
+          <ParallaxElement speed={0.05} direction="x" className="absolute top-[40%] left-[80%] w-[2px] h-[100px] bg-blue-200/30 transform rotate-45" />
+        </div>
+        
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center text-blue-200">お問い合わせについて</h2>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-b from-blue-800/30 to-blue-900/50 p-6 rounded-xl border border-blue-700/30 shadow-md">
-                <h3 className="text-xl font-semibold mb-4 text-blue-100">オフィス所在地</h3>
-                <p className="text-blue-200 mb-2">〒150-0002</p>
-                <p className="text-blue-200 mb-4">東京都渋谷区渋谷X-X-X XXビル 5F</p>
-                <p className="text-blue-200 mb-2">営業時間: 平日 9:00-18:00</p>
-                <p className="text-blue-200">最寄駅: 渋谷駅から徒歩5分</p>
-              </div>
+              <ScrollFade direction="right" delay={0.4} className="bg-blue-800/40 backdrop-blur-sm rounded-2xl p-8 border border-blue-600/30 shadow-lg">
+                <h3 className="text-xl font-bold mb-6 text-blue-100">オフィス所在地</h3>
+                <div className="space-y-4 text-blue-200">
+                  <p>〒170-0013</p>
+                  <p>東京都豊島区東池袋4-25-12 池袋今泉ビル7F</p>
+                  <p>営業時間: 平日 9:00-18:00</p>
+                  <p>最寄駅: 池袋駅東口から徒歩10分</p>
+                </div>
+              </ScrollFade>
               
-              <div className="bg-gradient-to-b from-blue-800/30 to-blue-900/50 p-6 rounded-xl border border-blue-700/30 shadow-md">
-                <h3 className="text-xl font-semibold mb-4 text-blue-100">直接のお問い合わせ</h3>
-                <p className="text-blue-200 mb-4">
-                  <span className="block font-medium">電話番号:</span>
-                  03-XXXX-XXXX
-                </p>
-                <p className="text-blue-200">
-                  <span className="block font-medium">メールアドレス:</span>
-                  info@brave-company.jp
-                </p>
-              </div>
-            </div>
-            
-            <div className="mt-12 text-center">
-              <h3 className="text-xl font-semibold mb-4 text-blue-100">よくあるご質問</h3>
-              <Link href="#" className="text-blue-300 hover:text-blue-200 transition-colors underline">
-                FAQページはこちら
-              </Link>
+              <ScrollFade direction="left" delay={0.5} className="bg-blue-800/40 backdrop-blur-sm rounded-2xl p-8 border border-blue-600/30 shadow-lg">
+                <h3 className="text-xl font-bold mb-6 text-blue-100">直接のお問い合わせ</h3>
+                <div className="space-y-4 text-blue-200">
+                  <div>
+                    <span className="block font-medium mb-2">電話番号:</span>
+                    03-5979-5224
+                  </div>
+                  <div>
+                    <span className="block font-medium mb-2">FAX:</span>
+                    03-5391-7310
+                  </div>
+                </div>
+              </ScrollFade>
             </div>
           </div>
         </div>
-      </section>
+      </ScrollFade>
 
       <Footer />
     </main>

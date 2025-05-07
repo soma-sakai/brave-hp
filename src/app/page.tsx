@@ -212,7 +212,7 @@ export default function Home() {
               <h3 className="text-2xl font-bold mb-4 text-white tracking-wide">SaaSソリューション<br />サービス</h3>
               <p className="text-lg text-blue-100 leading-relaxed">
                 Microsoft365などの導入サポートを行います。
-              </p>
+            </p>
             </div>
           </div>
         </div>
@@ -371,17 +371,27 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-12 fade-in-up">MESSAGE</h2>
             <div className="max-w-4xl mx-auto text-left">
               <div className="bg-blue-800/30 backdrop-blur-sm p-8 rounded-xl border border-blue-700/30 shadow-xl fade-in">
-                <p className="text-base md:text-lg text-blue-100 leading-relaxed mb-5">
-                  会社は社員とその家族を守り、社員一人一人が努力し、会社と共に成長する。これが私の根底にある基本的な考えです。
+                <h3 className="text-2xl font-bold text-blue-100 mb-8 text-center">CEOからのメッセージ</h3>
+                <p className="text-base md:text-lg text-blue-100 leading-relaxed mb-8">
+                  会社は社員とその家族を守り、社員一人一人が努力し、会社と共に成長する。<br />
+                  これが私の根底にある基本的な考えです。
                 </p>
-                <p className="text-base md:text-lg text-blue-100 leading-relaxed mb-5">
-                  会社と社員の心が一つになり、同じ方向に向かっている時、皆仲間であり家族です。その家族を守る為には資金も必要ですから蓄えます。しかし蓄えが多くなると経営者はそれを隠くそうとします。そうなると会社の風通しが悪くなり、会社と社員の心が一つになりません。
+                <p className="text-base md:text-lg text-blue-100 leading-relaxed mb-8">
+                  会社と社員の心が一つになり、同じ方向に向かっている時、皆仲間であり家族です。<br />
+                  その家族を守る為には資金も必要ですから蓄えます。しかし蓄えが多くなると経営者はそれを隠くそうとします。<br />
+                  そうなると会社の風通しが悪くなり、会社と社員の心が一つになりません。<br />
+                  会社と共に悩み、会社と共に苦しみ、会社と共に成長してくれる社員に、私は包み隠さず腹を割って話をします。
                 </p>
-                <p className="text-base md:text-lg text-blue-100 leading-relaxed mb-5">
-                  会社と共に悩み、会社と共に苦しみ、会社と共に成長してくれる社員に、私は包み隠さず腹を割って話をします。技術者として一生懸命に仕事して、疲れたと言うなら、あなたの今後を考え話し合いましょう。営業に転身？ いやあなたの趣味を仕事にできないか？ 他業種で面白い企画発想はないか？話をするだけで、疲れた技術者が元気になりそうです。その時の為にも、頑張ってお金も蓄え、いずれその時に運用しましょう。
+                <p className="text-base md:text-lg text-blue-100 leading-relaxed mb-8">
+                  技術者として一生懸命に仕事して、疲れたと言うなら、あなたの今後を考え話し合いましょう。<br />
+                  営業に転身？　いやあなたの趣味を仕事にできないか？　他業種で面白い企画発想はないか？<br />
+                  話をするだけで、疲れた技術者が元気になりそうです。<br />
+                  その時の為にも、頑張ってお金も蓄え、いずれその時に運用しましょう。
                 </p>
-                <p className="text-base md:text-lg text-blue-100 leading-relaxed mb-5">
-                  事業の繁栄と継続は、客先に信用される事でありますが、私は先ず社員に信用される事を大事にします。会社は当たり前の事を当たり前にやり続け、社員も当たり前の事を当たり前にやり続ける。会社も良くなり、社員も良くなり、世間も良くなり、「三方よし」。経営理念の原点です。
+                <p className="text-base md:text-lg text-blue-100 leading-relaxed mb-8">
+                  事業の繁栄と継続は、客先に信用される事でありますが、私は先ず社員に信用される事を大事にします。<br />
+                  会社は当たり前の事を当たり前にやり続け、社員も当たり前の事を当たり前にやり続ける。<br />
+                  会社も良くなり、社員も良くなり、世間も良くなり、「三方よし」。経営理念の原点です。
                 </p>
                 <p className="text-base md:text-lg text-blue-100 leading-relaxed">
                   社員が成長し、客先に信用され、社会貢献できる企業で有り続ける為に、苦しみながらも前を向いて乗り越えてまいります。
