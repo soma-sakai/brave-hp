@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const Header = () => {
@@ -14,6 +13,7 @@ const Header = () => {
     { href: '/news', label: 'ニュース' },
     { href: '/blog', label: 'ブログ' },
     { href: '/company', label: '会社情報' },
+    { href: '/careers', label: '採用情報' },
     { href: '/contact', label: 'お問い合わせ' },
   ];
 
@@ -75,24 +75,20 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <motion.nav
+          <nav
             className="md:hidden bg-blue-900"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
+        >
             <div className="py-2 space-y-1 border-t border-blue-800">
-              {menuItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
+            {menuItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
                   className="block px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-blue-800/50"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
               <div className="px-4 py-3 flex flex-col space-y-2">
                 <Link
                   href="/trial"
@@ -101,16 +97,16 @@ const Header = () => {
                 >
                   お試し申し込み
                 </Link>
-                <Link
+              <Link
                   href="/login"
                   className="block w-full text-center px-4 py-2 text-sm font-medium text-white border border-white hover:bg-white/10 rounded-full"
-                  onClick={() => setIsOpen(false)}
-                >
+                onClick={() => setIsOpen(false)}
+              >
                   ログイン
-                </Link>
-              </div>
+              </Link>
             </div>
-          </motion.nav>
+          </div>
+          </nav>
         )}
       </div>
     </header>
