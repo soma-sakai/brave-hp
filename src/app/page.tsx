@@ -56,6 +56,38 @@ export default function Home() {
     { name: 'Zoom', logo: '/images/partner-logo.svg' },
   ];
 
+  useEffect(() => {
+    // スクロールアニメーションのためのIntersection Observer
+    const handleIntersection = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+    
+    const observer = new IntersectionObserver(handleIntersection, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    });
+    
+    const sections = document.querySelectorAll('#services, #about, #company, #message');
+    sections.forEach(section => {
+      // 初期表示時にもvisibleクラスを追加して見えるようにする
+      section.classList.add('visible');
+      observer.observe(section);
+    });
+    
+    // クリーンアップ関数
+    return () => {
+      sections.forEach(section => {
+        observer.unobserve(section);
+      });
+    };
+  }, []); // 空の依存配列でマウント時のみ実行
+
   return (
     <main className="min-h-screen bg-blue-950 text-white">
       <Header />
@@ -813,8 +845,8 @@ export default function Home() {
           }
           
           #services, #about, #company, #message {
-            opacity: 0;
-            transform: translateY(20px);
+            opacity: 1; /* 0から1に変更 */
+            transform: translateY(0); /* 初期表示時に既に正しい位置にする */
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
           }
           
@@ -824,34 +856,6 @@ export default function Home() {
           }
         }
       `}</style>
-      
-      {/* スクロールアニメーションのためのスクリプト */}
-      <script dangerouslySetInnerHTML={{
-        __html: `
-          function handleIntersection(entries, observer) {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-              }
-            });
-          }
-          
-          document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('#services, #about, #company, #message');
-            
-            const observer = new IntersectionObserver(handleIntersection, {
-              root: null,
-              rootMargin: '0px',
-              threshold: 0.1
-            });
-            
-            sections.forEach(section => {
-              observer.observe(section);
-            });
-          });
-        `
-      }} />
     </main>
   );
 }
